@@ -31,7 +31,7 @@ async function removeContact(id) {
     }
   }
   await fs.writeFile(
-    path.join(__dirname, "contact.json"),
+    path.join(__dirname, "./db/contacts.json"),
     JSON.stringify(newList, null, 2)
   );
   return newList;
@@ -42,7 +42,7 @@ async function addContact(name, email, phone) {
   const newContact = { id: randomUUID(), name, email, phone };
   contacts.push(newContact);
   await fs.writeFile(
-    path.join(__dirname, "contact.json"),
+    path.join(__dirname, "./db/contacts.json"),
     JSON.stringify(contacts, null, 2)
   );
   return newContact;
